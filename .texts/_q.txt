@@ -1,0 +1,9 @@
+? fresh fetch url twice
+? input event type (typescript)
+cookies and localStorage for manage user state
+no state needed on client 
+
+some const need to be in client side hard coded like mapping
+select
+1 => maison
+2 => ...

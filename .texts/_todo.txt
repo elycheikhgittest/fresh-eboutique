@@ -1,0 +1,25 @@
+[ok] link it with ready rest api => corse
+fresh read only => list, details
+spa/android based react+ionic+capacitor read, write, only authentificate user can use this
+oak-sqlite-backend-ready-main for dev
+
+django for backend in production
+
+[ok] implement register
+ [ok] extract data
+ [ok] post data
+ [] save token  client side => on oak side register must return token
+ skip to login
+
+
+implement login
+ [] extract data
+ [] post data
+ [] save token  client side => on oak side register must return token
+ skip to login
+
+implement add
+
+implement list
+
+sqlite db + sqlbuilder

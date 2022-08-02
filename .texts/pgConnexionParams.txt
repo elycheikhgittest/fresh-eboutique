@@ -1,0 +1,8 @@
+username :
+user@domain.com
+
+PASSWORD
+postgresmaster
+
+
+deploy pgserver pgadmin in one  image/container

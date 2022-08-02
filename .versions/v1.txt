@@ -1,0 +1,4 @@
+pagination
+details with dynamic params
+set cookies in response after mocked login
+

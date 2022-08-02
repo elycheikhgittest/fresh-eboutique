@@ -1,0 +1,15 @@
+cli 
+read list of articles from db in /api then in idex.tsx ok 
+read 1 article ok
+register target api/register when ok redirect to add page
+
+
+  save in db ok
+  // then redirect vert add or
+  // catch redirect to the same page with user already registed
+  une fois le user est enrgistre on cach register et login buttin
+
+
+login
+
+=> v4 link articles with users
