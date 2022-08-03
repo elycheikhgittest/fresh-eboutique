@@ -64,6 +64,7 @@ export const handler: Handlers<null> = {
     console.log({ passes });
     console.log({ firstErrors });
     console.log({ flattenErrors });
+    const userId = 1;
 
     try {
       if(passes){
@@ -73,6 +74,7 @@ export const handler: Handlers<null> = {
            ...inputs,
             dateAdd: "3-8-2022",
           },
+          userId
         );
 
       }
