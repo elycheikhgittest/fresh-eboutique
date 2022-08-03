@@ -1,11 +1,12 @@
 import * as postgres from "https://deno.land/x/postgres@v0.16.1/mod.ts";
 import * as logger from "https://deno.land/std@0.149.0/log/mod.ts";
+ 
 
-const databaseUrl = Deno.env.get("DATABASE_URL")!;
-const pool = new postgres.Pool(databaseUrl, 3, true);
-const client = await pool.connect();
-
-export async function removeToken(token: string) {
+export async function removeToken(
+  pool : postgres.Pool
+  ,
+  token: string) {
+    const client = await pool.connect();
   try {
     const result = await client.queryObject(
       `

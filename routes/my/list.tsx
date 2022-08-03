@@ -6,7 +6,7 @@ import { Fragment } from "preact";
 import Navbar from "../../islands/Navbar.tsx";
 import { ILoginState } from "../../interfaces/mod.ts";
 import { isloginFromRequest } from "../../utiles/islogin.ts";
- 
+
 export const handler: Handlers<ILoginState> = {
   async GET(req, ctx) {
     const url = new URL(req.url);

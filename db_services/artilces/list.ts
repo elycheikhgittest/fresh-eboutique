@@ -4,7 +4,6 @@ import * as logger from "https://deno.land/std@0.149.0/log/mod.ts";
 import { IArticleInDb } from "./interface.ts";
 import { itemPerPage } from "../../config/config.ts";
 
- 
 export async function getArticles(
   pool: postgres.Pool,
   skip: number,
