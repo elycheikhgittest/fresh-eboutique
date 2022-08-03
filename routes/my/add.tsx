@@ -6,6 +6,17 @@ import { Fragment } from "preact";
 import Navbar from "../../islands/Navbar.tsx";
 import AddForm from "../../islands/addForm.tsx";
 import { convertToIntOrZero } from "../../utiles/convet_to_int_or_zero.ts";
+import { articleValidationRules } from "../../utiles/article_validation_rules.ts";
+
+import {
+  firstMessages,
+  flattenMessages,
+  maxLength,
+  minLength,
+  numberBetween,
+  required,
+  validate,
+} from "https://deno.land/x/validasaur@v0.15.0/mod.ts";
 
 import {
   Cookie,
@@ -37,30 +48,35 @@ export const handler: Handlers<null> = {
     prix = convertToIntOrZero(String(data.get("prix")));
 
     // verify incoming data aigainst some validations rules (later)
-
-    console.log({
+    const inputs = {
       categorie,
       subcategorie,
       lieu,
       description,
       prix,
-    });
+    };
+
+    console.log(inputs);
+    const [passes, errors] = await validate(inputs, articleValidationRules);
+    const firstErrors = firstMessages(errors);
+    const flattenErrors = flattenMessages(errors);
+    //
+    console.log({ passes });
+    console.log({ firstErrors });
+    console.log({ flattenErrors });
 
     try {
-      await createArticle(
-        pool,
-        {
-          categorie: 1,
-          subcategorie: 1,
-          lieu: 1,
-          description: "from routes",
-          prix: 5000,
-          dateAdd: "3-8-2022",
-        },
-      );
-      const cookies = getCookies(req.headers);
-      console.log({ cookies });
+      if(passes){
+        await createArticle(
+          pool,
+          {
+           ...inputs,
+            dateAdd: "3-8-2022",
+          },
+        );
 
+      }
+ 
       return ctx.render(null);
     } catch (error) {
       console.log("user already in db");
