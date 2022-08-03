@@ -5,6 +5,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { Fragment } from "preact";
 import Navbar from "../../islands/Navbar.tsx";
 import AddForm from "../../islands/addForm.tsx";
+import { convertToIntOrZero } from "../../utiles/convet_to_int_or_zero.ts";
 
 import {
   Cookie,
@@ -17,30 +18,22 @@ import { pool } from "../../config/pool.ts";
 export const handler: Handlers<null> = {
   async POST(req, ctx) {
     const data = await req.formData();
-    // verify integer value are not alphanumerique
+    // validate that option is in some range
 
     let categorie = 0;
-    if (data.get("categorie")) {
-      categorie = parseInt(String(data.get("categorie")));
-    }
+    categorie = convertToIntOrZero(String(data.get("categorie")));
 
     let subcategorie = 0;
-    if (data.get("subcategorie")) {
-      subcategorie = parseInt(String(data.get("subcategorie")));
-    }
+    subcategorie = convertToIntOrZero(String(data.get("subcategorie")));
 
     let lieu = 0;
-    if (data.get("lieu")) {
-      lieu = parseInt(String(data.get("lieu")));
-    }
+    lieu = convertToIntOrZero(String(data.get("lieu")));
+
     let description = "";
-    if (data.get("description")) {
-      description = String(data.get("description"));
-    }
+    description = String(data.get("description"));
+
     let prix = 0;
-    if (data.get("prix")) {
-      prix = parseInt(String(data.get("prix")));
-    }
+    prix = convertToIntOrZero(String(data.get("prix")));
 
     // verify incoming data aigainst some validations rules (later)
 
