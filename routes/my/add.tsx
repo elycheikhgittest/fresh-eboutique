@@ -11,6 +11,8 @@ import {
   getCookies,
   setCookie,
 } from "https://deno.land/std@0.149.0/http/cookie.ts";
+import { createArticle } from "../../db_services/artilces/add_func.ts";
+import { pool } from "../../config/pool.ts";
 
 export const handler: Handlers<null> = {
   async POST(req, ctx) {
@@ -20,7 +22,9 @@ export const handler: Handlers<null> = {
     // verify incoming data aigainst some validations rules (later)
     // try to save in db
     console.log({ username, password });
+
     try {
+      //await createArticle(pool,{categorie:1,subcategorie:1,lieu:1,})
       const cookies = getCookies(req.headers);
       console.log({ cookies });
 

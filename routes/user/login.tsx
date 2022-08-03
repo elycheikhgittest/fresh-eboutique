@@ -35,7 +35,7 @@ export const handler: Handlers<IMessage> = {
     console.log({ username });
     const password = String(data.get("password"));
     console.log({ password });
-    const users = await getUserByName( pool ,username);
+    const users = await getUserByName(pool, username);
     if (!users) {
       console.log(" db connexion failed or other pb");
       resp = await ctx.render({ message: "", isLogin: false });
@@ -58,7 +58,7 @@ export const handler: Handlers<IMessage> = {
           expire_date: 1,
           isActive: 1,
         };
-        await createToken(pool,tokenObj);
+        await createToken(pool, tokenObj);
         resp = await ctx.render({ message: "", isLogin: true });
         setCookie(resp.headers, {
           name: "token",

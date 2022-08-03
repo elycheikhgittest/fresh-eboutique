@@ -19,7 +19,7 @@ export const handler: Handlers = {
   },
   async POST(req, ctx) {
     const url = new URL(req.url);
-    const resp = await ctx.render({ message: "", isLogin: false });
+    const resp = await ctx.render(null);
     const cookies = getCookies(req.headers);
     const token = cookies["token"];
     if (token) {
@@ -41,7 +41,7 @@ export default function Logout() {
         <link rel="stylesheet" href="/styles.css" />
       </Head>
       <body dir="rtl">
-        <Navbar isLogin={false} />
+        <Navbar isLogin={true} />
         <header>
           <h1>
             خروج
