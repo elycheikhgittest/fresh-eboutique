@@ -19,6 +19,7 @@ export const handler: Handlers<null> = {
   async POST(req, ctx) {
     const data = await req.formData();
     // validate that option is in some range
+    // verify desc min 4 max 150
 
     let categorie = 0;
     categorie = convertToIntOrZero(String(data.get("categorie")));
