@@ -17,14 +17,53 @@ import { pool } from "../../config/pool.ts";
 export const handler: Handlers<null> = {
   async POST(req, ctx) {
     const data = await req.formData();
-    const username = String(data.get("username"));
-    const password = String(data.get("password"));
+    // verify integer value are not alphanumerique
+
+    let categorie = 0;
+    if ( data.get("categorie")) {
+      categorie = parseInt(String(data.get("categorie")));
+    }
+
+    let subcategorie = 0;
+    if (data.get("subcategorie")) {
+      subcategorie = parseInt(String(data.get("subcategorie")));
+    }
+
+    let lieu = 0;
+    if ( data.get("lieu")) {
+      lieu = parseInt(String(data.get("lieu")));
+    }
+    let description = "";
+    if (data.get("description")) {
+      description = String(data.get("description"));
+    }
+    let prix = 0;
+    if ( data.get("prix")) {
+      prix = parseInt(String(data.get("prix")));
+    }
+
     // verify incoming data aigainst some validations rules (later)
-    // try to save in db
-    console.log({ username, password });
+
+    console.log({
+      categorie,
+      subcategorie,
+      lieu,
+      description,
+      prix,
+    });
 
     try {
-      //await createArticle(pool,{categorie:1,subcategorie:1,lieu:1,})
+      await createArticle(
+        pool,
+        {
+          categorie: 1,
+          subcategorie: 1,
+          lieu: 1,
+          description: "from routes",
+          prix: 5000,
+          dateAdd: "3-8-2022",
+        },
+      );
       const cookies = getCookies(req.headers);
       console.log({ cookies });
 

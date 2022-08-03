@@ -19,11 +19,11 @@ export default function AddForm() {
         </option>
       </select>
 
-      <select>
+      <select name="lieu">
         <option selected>
           اختر المكان
         </option>
-        <option value="1">
+        <option value="a">
           نواكشوط-عرفات
         </option>
         <option value="2">

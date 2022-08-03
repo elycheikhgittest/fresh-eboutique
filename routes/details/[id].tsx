@@ -13,12 +13,11 @@ import { pool } from "../../config/pool.ts";
 
 export const handler: Handlers<IArticleInDb | null> = {
   async GET(req, ctx) {
-    //console.log(req);
     const { id } = ctx.params;
 
     const idNumber = parseInt(id);
     const articles = await getArticleById(pool, idNumber);
-    console.log({ articles });
+    //console.log({ articles });
     if (!articles) {
       return ctx.render(null);
     } else {
@@ -31,7 +30,6 @@ export default function DetailsPublic(
   { data }: PageProps<IArticleInDb | null>,
   pageProps: PageProps,
 ) {
-  console.log({ data });
   if (!data) {
     return <NotFound />;
   }
