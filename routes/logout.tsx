@@ -11,6 +11,7 @@ import {
 } from "https://deno.land/std@0.149.0/http/cookie.ts";
 import { removeToken } from "../db_services/tokens/remove.ts";
 import LogoutForm from "../islands/LogoutForm.tsx";
+import { pool } from "../config/pool.ts";
 
 export const handler: Handlers = {
   GET(req, ctx) {
@@ -23,7 +24,7 @@ export const handler: Handlers = {
     const token = cookies["token"];
     if (token) {
       // I must verify token is valid v4/uuid befor trying to remove it from db
-      await removeToken(token);
+      await removeToken(pool, token);
     }
     deleteCookie(resp.headers, "token", { path: "/" });
     return Response.redirect(`${url.protocol}//${url.host}`);

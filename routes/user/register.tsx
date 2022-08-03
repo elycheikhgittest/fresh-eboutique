@@ -21,6 +21,7 @@ import Nav from "../../islands/Navbar.tsx";
 import { IToken } from "../../db_services/tokens/interface.ts";
 import { createToken } from "../../db_services/tokens/add.ts";
 import { IMessage } from "../../interfaces/mod.ts";
+import { pool } from "../../config/pool.ts";
 
 export const handler: Handlers<IMessage> = {
   async GET(_req, ctx) {
@@ -38,9 +39,9 @@ export const handler: Handlers<IMessage> = {
     let isSaved = false;
     // save in db
     try {
-      await createUser({ username, password: passwordHashed });
+      await createUser(pool,{ username, password: passwordHashed });
       console.log("create user");
-      const users = await getUserByName(username);
+      const users = await getUserByName(pool,username);
       if (users) {
         userId = users[0].id;
       }
@@ -53,7 +54,7 @@ export const handler: Handlers<IMessage> = {
         isActive: 1,
       };
 
-      await createToken(tokenObj);
+      await createToken(pool,tokenObj);
       isSaved = true;
     } catch (error) {
       console.log(error);

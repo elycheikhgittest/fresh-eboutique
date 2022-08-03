@@ -9,6 +9,7 @@ import NotFound from "../../component/notFound2.jsx";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { IArticleInDb } from "../../db_services/artilces/interface.ts";
 import { getArticleById } from "../../db_services/artilces/getone.ts";
+import { pool } from "../../config/pool.ts";
 
 export const handler: Handlers<IArticleInDb | null> = {
   async GET(req, ctx) {
@@ -16,7 +17,7 @@ export const handler: Handlers<IArticleInDb | null> = {
     const { id } = ctx.params;
 
     const idNumber = parseInt(id);
-    const articles = await getArticleById(idNumber);
+    const articles = await getArticleById(pool,idNumber);
     console.log({ articles });
     if (!articles) {
       return ctx.render(null);

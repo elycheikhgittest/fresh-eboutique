@@ -13,6 +13,7 @@ import NotFound from "../component/notFound2.jsx";
 import PaginationCompo from "../islands/pagination.tsx";
 import { getArticles } from "../db_services/artilces/list.ts";
 import { itemPerPage } from "../config/config.ts";
+import { pool } from "../config/pool.ts";
 
 export const handler: Handlers<IArticlesItemAndPageNumber | null> = {
   async GET(req, ctx) {
@@ -26,7 +27,7 @@ export const handler: Handlers<IArticlesItemAndPageNumber | null> = {
 
     try {
       const skip = (pageN - 1) * itemPerPage;
-      const articles = await getArticles(skip);
+      const articles = await getArticles(pool,skip);
       console.log({ articles });
       if (articles) {
         toRender.articles = articles;
