@@ -4,13 +4,12 @@ import * as logger from "https://deno.land/std@0.149.0/log/mod.ts";
 import { IArticleInDb } from "./interface.ts";
 import { itemPerPage } from "../../config/config.ts";
 
-const databaseUrl = Deno.env.get("DATABASE_URL")!;
-const pool = new postgres.Pool(databaseUrl, 3, true);
-const client = await pool.connect();
-
+ 
 export async function getArticles(
+  pool: postgres.Pool,
   skip: number,
 ): Promise<IArticleInDb[] | void> {
+  const client = await pool.connect();
   //const itemPerPage = 3;
   //const skip = 0 ;
   try {
