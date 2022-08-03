@@ -1,15 +1,10 @@
 import { assertEquals } from "https://deno.land/std@0.149.0/testing/asserts.ts";
-import { IArticle } from "./interface.ts";
+import { IArticle } from "../interfaces/interface.ts";
 import { createArticle } from "./add_func.ts";
-import {
-  create_table_articles,
-  create_table_users,
-} from "../../tables/create_tables.ts";
-import {
-  drop_table_articles,
-  drop_table_users,
-} from "../../tables/drop_tables.ts";
-import { pool } from "./pool.ts";
+import { pool } from "../config/pool.ts";
+
+import { create_table_articles, create_table_users } from "./create_tables.ts";
+import { drop_table_articles, drop_table_users } from "./drop_tables.ts";
 
 const a: IArticle = {
   categorie: 0,
@@ -36,6 +31,7 @@ Deno.test({
     await create_table_articles(pool);
     // add articles
     const result = await createArticle(pool, a);
+
     pool.end();
     //console.log(result)
     // test

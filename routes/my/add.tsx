@@ -20,7 +20,7 @@ export const handler: Handlers<null> = {
     // verify integer value are not alphanumerique
 
     let categorie = 0;
-    if ( data.get("categorie")) {
+    if (data.get("categorie")) {
       categorie = parseInt(String(data.get("categorie")));
     }
 
@@ -30,7 +30,7 @@ export const handler: Handlers<null> = {
     }
 
     let lieu = 0;
-    if ( data.get("lieu")) {
+    if (data.get("lieu")) {
       lieu = parseInt(String(data.get("lieu")));
     }
     let description = "";
@@ -38,7 +38,7 @@ export const handler: Handlers<null> = {
       description = String(data.get("description"));
     }
     let prix = 0;
-    if ( data.get("prix")) {
+    if (data.get("prix")) {
       prix = parseInt(String(data.get("prix")));
     }
 
