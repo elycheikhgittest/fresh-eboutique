@@ -4,7 +4,7 @@ export interface IArticle {
   lieu: number;
   prix: number;
   description: string;
-  dateAdd: string;
+  dateadd: string;
 }
 
 export interface IArticleInDb extends IArticle {

@@ -1,9 +1,11 @@
 /** @jsx h */
 import { h } from "preact";
-import { IArticleItem } from "../interfaces/mod.ts";
+import { IArticleInDb } from "../interfaces/interface.ts";
 export default function ArticleDetails(
-  prop: IArticleItem,
+  prop: IArticleInDb,
 ) {
+  console.log("articleDetails in components : ");
+  console.log(prop);
   return (
     <article class="card">
       <div class="card__image" style="background-image: url(/img/ah1.jpg);">
@@ -12,17 +14,34 @@ export default function ArticleDetails(
         <h5 class="card__title">
           سيارة جيدة
         </h5>
-        <div>{prop.desc}</div>
         <div>
-          <span>{prop.prix}</span>
-          <small>
+          {prop.description}
+        </div>
+        <div>
+          <span>
+            السعر
+          </span>
+
+          <span>
+            <b>
+              {prop.prix}
+            </b>
+          </span>
+          <sub>
             اوقية جيدة
-          </small>
+          </sub>
         </div>
       </div>
       <div class="card__footer">
         <div>
-          <span>{prop.dateAdd}</span>
+          معلومات المعلن
+        </div>
+        <br />
+        <div>
+          الهاتف
+        </div>
+        <div>
+          223399..{prop.dateadd}
         </div>
       </div>
     </article>

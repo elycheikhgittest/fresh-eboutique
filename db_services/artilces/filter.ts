@@ -1,6 +1,7 @@
 import * as postgres from "https://deno.land/x/postgres@v0.16.1/mod.ts";
 import * as logger from "https://deno.land/std@0.149.0/log/mod.ts";
-import { IArticleInDb } from "./interface.ts";
+import { IArticleInDb } from "../../interfaces/interface.ts";
+//import { IArticleInDb } from "./interface.ts";
 
 interface IArticleFilter {
   categorie: number | undefined;

@@ -25,9 +25,26 @@ import {
 } from "https://deno.land/std@0.149.0/http/cookie.ts";
 import { createArticle } from "../../db_services/artilces/add_func.ts";
 import { pool } from "../../config/pool.ts";
+import { isloginFromRequest } from "../../utiles/islogin.ts";
 
 export const handler: Handlers<null> = {
+  async GET(req, ctx) {
+    const url = new URL(req.url);
+    const { isLogin, userId } = await isloginFromRequest(req);
+    console.log({ isLogin });
+    if (!isLogin) {
+      return Response.redirect(`${url.protocol}//${url.host}/user/login`);
+    }
+    return ctx.render(null);
+  },
   async POST(req, ctx) {
+    const url = new URL(req.url);
+    const { isLogin, userId } = await isloginFromRequest(req);
+    console.log({ isLogin });
+    if (!isLogin) {
+      return Response.redirect(`${url.protocol}//${url.host}/user/login`);
+    }
+    console.log({ isLogin, userId });
     const data = await req.formData();
     // validate that option is in some range
     // verify desc min 4 max 150
@@ -64,21 +81,20 @@ export const handler: Handlers<null> = {
     console.log({ passes });
     console.log({ firstErrors });
     console.log({ flattenErrors });
-    const userId = 1;
+    // qui ajoute cette article
 
     try {
-      if(passes){
+      if (passes) {
         await createArticle(
           pool,
           {
-           ...inputs,
-            dateAdd: "3-8-2022",
+            ...inputs,
+            dateAdd: Date.now().toString(),
           },
-          userId
+          userId,
         );
-
       }
- 
+
       return ctx.render(null);
     } catch (error) {
       console.log("user already in db");

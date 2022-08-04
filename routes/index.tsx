@@ -33,7 +33,8 @@ export const handler: Handlers<IArticlesItemAndPageNumber | null> = {
         toRender.articles = articles;
       }
 
-      toRender.isLogin = await isloginFromRequest(req);
+      const { isLogin, userId } = await isloginFromRequest(req);
+      toRender.isLogin = isLogin;
 
       return ctx.render(toRender);
     } catch (error) {

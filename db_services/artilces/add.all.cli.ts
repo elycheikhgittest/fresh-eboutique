@@ -7,6 +7,6 @@ import { createArticle } from "./add_func.ts";
 const userId = 1;
 articlesToSave.forEach(
   async (article) => {
-    await createArticle(pool, article,userId);
+    await createArticle(pool, article, userId);
   },
 );

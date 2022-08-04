@@ -7,7 +7,7 @@ import ArticleComponent from "../../component/articleDetails.tsx";
 import NotFound from "../../component/notFound2.jsx";
 // http://localhost:3000/api/private/objects/objectname/list/g_.ts
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { IArticleInDb } from "../../db_services/artilces/interface.ts";
+import { IArticleInDb } from "../../interfaces/interface.ts";
 import { getArticleById } from "../../db_services/artilces/getone.ts";
 import { pool } from "../../config/pool.ts";
 
@@ -17,8 +17,9 @@ export const handler: Handlers<IArticleInDb | null> = {
 
     const idNumber = parseInt(id);
     const articles = await getArticleById(pool, idNumber);
-    //console.log({ articles });
-    if (!articles) {
+    console.log("[id].ts");
+    console.log({ articles });
+    if (!articles || articles.length == 0) {
       return ctx.render(null);
     } else {
       return ctx.render(articles[0]);
@@ -52,9 +53,13 @@ export default function DetailsPublic(
 
         <div class="card-container">
           <ArticleComponent
-            desc={data.description}
+            id={data.id}
+            categorie={data.categorie}
+            subcategorie={data.subcategorie}
+            lieu={data.lieu}
+            description={data.description}
             prix={data.prix}
-            dateAdd={data.dateAdd}
+            dateadd={data.dateadd}
           />
         </div>
       </body>
