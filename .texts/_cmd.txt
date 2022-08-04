@@ -1,6 +1,1 @@
-
-
-
-export DATABASE_URL=postgres://postgres:postgresmaster@localhost:5432/dbtest2
-deno task start
-
+ 
