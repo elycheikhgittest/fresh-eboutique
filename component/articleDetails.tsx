@@ -20,22 +20,20 @@ export default function ArticleDetails(
         <div>
           {prop.description}
           <br />
-          {prop.dateadd}
+
+          <span dir="ltr">{prop.dateadd}</span>
         </div>
         <div>
+          <hr />
+
           <span>
-            السعر
+            <b style={{ "font-size": "2.5em" }} dir="ltr">
+              {getNumberResp(prop.prix)}
+            </b>
           </span>
-          <sup>
-            <span>
-              <b style={{ "font-size": "2.5em" }} dir="ltr">
-                {getNumberResp(prop.prix)}
-              </b>
-            </span>
-            <sub>
-              اوقية جيدة
-            </sub>
-          </sup>
+          <sub>
+            اوقية جيدة
+          </sub>
         </div>
       </div>
       <div class="card__footer">

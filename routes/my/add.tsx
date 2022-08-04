@@ -89,7 +89,7 @@ export const handler: Handlers<null> = {
           pool,
           {
             ...inputs,
-            dateAdd: Date.now().toString(),
+            dateadd: Date.now().toString(),
           },
           userId,
         );

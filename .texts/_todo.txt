@@ -1,1 +1,2 @@
- 
+ in list ui toutes les description doit avoir exactement le meme tailles pour que la largeur de chaque
+ item de la list soit la meme ( a la regle ) donc agreable a voire
