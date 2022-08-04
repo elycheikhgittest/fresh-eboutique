@@ -2,6 +2,7 @@
 import { h } from "preact";
 import { Fragment } from "preact";
 import { IArticleInDb } from "../interfaces/interface.ts";
+import { getNumberResp } from "../utiles/number_repr.ts";
 function getXFirstCharacters(word: string, max: number) {
   const l = word.length;
   const m = Math.min(max, l);
