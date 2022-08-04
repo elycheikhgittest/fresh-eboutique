@@ -11,7 +11,7 @@ export const articlesToSave: IArticle[] = [
       
       `,
     prix: 320000,
-    dateAdd: "23-4-2022",
+    dateadd: "23-4-2022",
   },
 
   //2
@@ -24,7 +24,7 @@ export const articlesToSave: IArticle[] = [
       
       `,
     prix: 1600000,
-    dateAdd: "24-4-2022",
+    dateadd: "24-4-2022",
   },
 
   //3
@@ -36,7 +36,7 @@ export const articlesToSave: IArticle[] = [
       هاتف سامسونج في حالة جيدة و مستخدم قليلا ذاكرته 1 جيكا
       `,
     prix: 3000,
-    dateAdd: "25-3-2022",
+    dateadd: "25-3-2022",
   },
 
   //4
@@ -48,7 +48,7 @@ export const articlesToSave: IArticle[] = [
       شقة للايجار مكونة غرفتين و صالون بمساحة 15م في 12م
       `,
     prix: 4000,
-    dateAdd: "26-4-2022",
+    dateadd: "26-4-2022",
   },
 
   //5
@@ -62,7 +62,7 @@ export const articlesToSave: IArticle[] = [
       في مساحة 30م في 20م
       `,
     prix: 12000,
-    dateAdd: "25-4-2022",
+    dateadd: "25-4-2022",
   },
 
   //6
@@ -74,7 +74,7 @@ export const articlesToSave: IArticle[] = [
       ابحث عن منزل للبيع في في صكوك غير بعيد من بقالة اتاك الخير
       `,
     prix: 0,
-    dateAdd: "12-5-2022",
+    dateadd: "12-5-2022",
   },
 
   //7
@@ -86,6 +86,6 @@ export const articlesToSave: IArticle[] = [
       ابحث عن قطعة ارضية للبيع في موديل ل
       `,
     prix: 0,
-    dateAdd: "23-4-2022",
+    dateadd: "23-4-2022",
   },
 ];

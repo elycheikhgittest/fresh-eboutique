@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 import { Fragment } from "preact";
-import { IArticleInDb } from "../db_services/artilces/interface.ts";
+import { IArticleInDb } from "../interfaces/interface.ts";
 function getXFirstCharacters(word: string, max: number) {
   const l = word.length;
   const m = Math.min(max, l);
@@ -31,7 +31,7 @@ export default function ArticleComponent(prop: IArticleInDb) {
           </div>
         </div>
         <div class="card__footer">
-          <span>{prop.dateAdd}</span>
+          <span>{prop.dateadd}</span>
           <a href={detailsUrl}>
             تفاصيل
           </a>

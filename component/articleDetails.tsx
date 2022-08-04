@@ -1,6 +1,9 @@
 /** @jsx h */
 import { h } from "preact";
 import { IArticleInDb } from "../interfaces/interface.ts";
+import { getNumberResp } from "../utiles/number_repr.ts";
+
+//
 export default function ArticleDetails(
   prop: IArticleInDb,
 ) {
@@ -16,32 +19,30 @@ export default function ArticleDetails(
         </h5>
         <div>
           {prop.description}
+          <br />
+          {prop.dateadd}
         </div>
         <div>
           <span>
             السعر
           </span>
-
-          <span>
-            <b>
-              {prop.prix}
-            </b>
-          </span>
-          <sub>
-            اوقية جيدة
-          </sub>
+          <sup>
+            <span>
+              <b style={{ "font-size": "2.5em" }} dir="ltr">
+                {getNumberResp(prop.prix)}
+              </b>
+            </span>
+            <sub>
+              اوقية جيدة
+            </sub>
+          </sup>
         </div>
       </div>
       <div class="card__footer">
         <div>
-          معلومات المعلن
-        </div>
-        <br />
-        <div>
           الهاتف
-        </div>
-        <div>
-          223399..{prop.dateadd}
+          <br />
+          223399..
         </div>
       </div>
     </article>
