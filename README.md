@@ -47,6 +47,7 @@ deno run --allow-read --allow-env --allow-net  cli/create_table.cli.ts
 deno run --allow-read --allow-env --allow-net  cli/drop.cli.ts articles subcategories categories lieux tokens users 
 deno run --allow-read --allow-env --allow-net  cli/create_table.cli.ts
 deno run --allow-read --allow-env --allow-net db_services/users/add.cli.ts 22001101 1
+deno run --allow-read --allow-env --allow-net  db_services/categories/init.cli.ts 
 
 deno run --allow-read --allow-env --allow-net  db_services/categories/add.cli.ts  بيع
 deno run --allow-read --allow-env --allow-net  db_services/categories/add.cli.ts  ايجار
@@ -58,5 +59,3 @@ deno run --allow-read --allow-env --allow-net db_services/lieux/add.cli.ts  noua
 
 deno run --allow-read --allow-env --allow-net cli/add.cli.ts
 ```
-
- 

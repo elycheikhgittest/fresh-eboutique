@@ -7,17 +7,15 @@ export async function createLieux(
   categorie: ILieuInput,
 ) {
   const client = await pool.connect();
-  const sqlText =       `
+  const sqlText = `
   INSERT INTO lieux
   (nom )
   VALUES  ( $nom )
-  `
+  `;
   try {
-    await client.queryObject(sqlText,
-      {
-        nom: categorie.nom,
-      },
-    );
+    await client.queryObject(sqlText, {
+      nom: categorie.nom,
+    });
   } catch (e) {
     logger.error(e);
   } finally {

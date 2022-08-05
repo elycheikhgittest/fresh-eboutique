@@ -1,5 +1,5 @@
 import { pool } from "../../config/pool.ts";
-import { createLieux} from "../../db_services/lieux/add.ts";
+import { createLieux } from "../../db_services/lieux/add.ts";
 
 async function createLieuxCli() {
   // recive categorie name from cli
@@ -14,4 +14,4 @@ async function createLieuxCli() {
   }
 }
 
-await createLieuxCli()
+await createLieuxCli();
