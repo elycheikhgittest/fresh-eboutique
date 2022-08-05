@@ -1,100 +1,19 @@
 import * as postgres from "https://deno.land/x/postgres@v0.16.1/mod.ts";
 
-export async function create_table_users(pool: postgres.Pool) {
+export async function create_all_tables(
+  pool: postgres.Pool,
+  paths: string[],
+) {
   const connection = await pool.connect();
   try {
     // Create the table
-    await connection.queryObject`
-    CREATE TABLE IF NOT EXISTS users (
-      id SERIAL PRIMARY KEY,
-      username TEXT NOT NULL UNIQUE,
-      password TEXT NOT NULL
-    )
-  `;
+    for (const item of paths) {
+      const p = `${Deno.cwd()}/cli/sql_texts/${item}`;
+      const sqlText = await Deno.readTextFile(p);
+      await connection.queryObject(sqlText);
+    }
     // replace consol log by std/logger
-    console.log("table users created");
-  } finally {
-    // Release the connection back into the pool
-    connection.release();
-  }
-}
-
-export async function create_table_categories(pool: postgres.Pool) {
-  const connection = await pool.connect();
-  try {
-    await connection.queryObject`
-    CREATE TABLE IF NOT EXISTS categories (
-      id SERIAL PRIMARY KEY,
-      nom TEXT NOT NULL UNIQUE
-    )
-  `;
-    // replace consol log by std/logger
-    console.log("table users created");
-  } finally {
-    // Release the connection back into the pool
-    connection.release();
-  }
-}
-
-export async function create_table_subcategories(pool: postgres.Pool) {
-  const connection = await pool.connect();
-  try {
-    await connection.queryObject`
-    CREATE TABLE IF NOT EXISTS subcategories (
-      id SERIAL PRIMARY KEY,
-      nom TEXT NOT NULL UNIQUE,
-      categorie_id Int NOT NULL,
-      FOREIGN KEY (categorie_id) REFERENCES categories (id)
-    )
-  `;
-    // replace consol log by std/logger
-    console.log("table users created");
-  } finally {
-    // Release the connection back into the pool
-    connection.release();
-  }
-}
-
-export async function create_table_articles(pool: postgres.Pool) {
-  const connection = await pool.connect();
-  try {
-    // Create the table
-    await connection.queryObject`
-      CREATE TABLE IF NOT EXISTS articles (
-        id SERIAL PRIMARY KEY,
-        userId INT NOT NULL,
-        categorie Int NOT NULL,
-        subcategorie Int  NOT NULL,
-        lieu Int  NOT NULL,
-        description TEXT  NOT NULL,
-        prix Int  NOT NULL,
-        dateAdd TEXT  NOT NULL,
-        FOREIGN KEY (userId) REFERENCES users (id)
-      )
-    `;
-    // replace consol log by std/logger
-    console.log("table articles created");
-  } finally {
-    // Release the connection back into the pool
-    connection.release();
-  }
-}
-
-export async function create_table_tokens(pool: postgres.Pool) {
-  const connection = await pool.connect();
-  try {
-    // Create the table
-    await connection.queryObject`
-      CREATE TABLE IF NOT EXISTS tokens (
-        id SERIAL PRIMARY KEY,
-        userId Int NOT NULL,
-        token TEXT NOT NULL,
-        expire_date Int  NOT NULL,  
-        isActive Int  NOT NULL
-      )
-    `;
-    // replace consol log by std/logger
-    console.log("table tokens created");
+    console.log("all tables was created");
   } finally {
     // Release the connection back into the pool
     connection.release();

@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS categories (
+    id SERIAL PRIMARY KEY,
+    nom TEXT NOT NULL UNIQUE
+    )

@@ -55,6 +55,13 @@ deno run --allow-read --allow-env --allow-net  db_services/categories/add.cli.ts
 deno run --allow-read --allow-env --allow-net db_services/subcategories/add.cli.ts 1 maison
 
 
-
 deno run --allow-read --allow-env --allow-net cli/add.cli.ts
+```
+
+# test new create tables way
+
+```
+export SECRET_KEY=SuperDuperSecret 
+export DATABASE_URL=postgres://postgres:postgresmaster@localhost:5432/eboutique 
+deno run --allow-read --allow-env --allow-net  cli/create_table.cli.ts
 ```
