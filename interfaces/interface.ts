@@ -24,3 +24,11 @@ export interface IArticle extends IArticleUserLess {
 export interface IArticleInDb extends IArticle {
   id: number;
 }
+
+export interface ICategorieInput {
+  nom: string;
+}
+
+export interface ICategorie extends ICategorieInput {
+  nom: string;
+}
