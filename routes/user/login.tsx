@@ -31,10 +31,8 @@ export const handler: Handlers<IMessage> = {
     const url = new URL(req.url);
     let resp = await ctx.render({ message: "", isLogin: false });
     const data = await req.formData();
-    const username = String(data.get("username"));
-    console.log({ username });
-    const password = String(data.get("password"));
-    console.log({ password });
+    const username = String(data.get("username")); 
+    const password = String(data.get("password")); 
     const users = await getUserByName(pool, username);
     if (!users) {
       console.log(" db connexion failed or other pb");

@@ -1,2 +1,15 @@
  in list ui toutes les description doit avoir exactement le meme tailles pour que la largeur de chaque
  item de la list soit la meme ( a la regle ) donc agreable a voire
+
+ on doit recuperer le numero de tel/username pour les details
+
+ pour le form add article
+ on n'a pas besoin d'envoyer/ ni recuperer le numero du categorie depuis le 
+ http request mais on l'en deduit depuis subcategorie et la base des donnees.
+
+ les categorie et les subcategorie et les lieux sont gerer uniquement par l'admin en mode lire et
+ ajouter uniquement.
+ 
+ le user est redirect apres login/register success vers add page cote client
+ 
+ review register.tsx code

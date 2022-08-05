@@ -4,8 +4,7 @@ export function getNumberResp1(n: number) {
   const sep = " ";
   const n_l = Math.ceil(Math.log10(n)); // number length in base 10
   let i = 0; // number of digit traited
-  const arr: string[] = [];
-  console.log(n);
+  const arr: string[] = []; 
   while (n > 0) {
     let n1 = String(n % 1000);
     if (n1.length == 1 && i + 3 < n_l) {
@@ -36,5 +35,4 @@ export function getNumberResp(n: number) {
   }
 }
 
-const r = getNumberResp(0);
-console.log(r);
+

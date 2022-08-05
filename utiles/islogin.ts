@@ -12,17 +12,12 @@ interface IWhoIsSendingRequest {
 
 export async function isloginFromRequest(
   req: Request,
-): Promise<IWhoIsSendingRequest> {
-  console.log("isloginFromRequest function");
-  const cookies = getCookies(req.headers);
-  console.log({ cookies });
-
-  const token = cookies["token"];
-  console.log({ token });
+): Promise<IWhoIsSendingRequest> { 
+  const cookies = getCookies(req.headers); 
+  const token = cookies["token"]; 
   if (token && v4.validate(token)) {
     // I must verify token is in db
-    const tokens = await getTokens(pool, token);
-    console.log(tokens);
+    const tokens = await getTokens(pool, token); 
     if (tokens && tokens.length == 1) {
       return {
         userId: tokens[0].userid,
@@ -41,5 +36,4 @@ export async function isloginFromRequest(
     };
   }
 }
-
-// authResponse function
+ 

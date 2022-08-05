@@ -21,8 +21,4 @@ export function hashPassword(password: string) {
   return encode(encrypted);
 }
 
-// const r = hashPassword("ely");
-// console.log(r)
-
-// export SECRET_KEY=SuperDuperSecret
-// deno run --allow-env utiles/hash_passord.ts
+ 

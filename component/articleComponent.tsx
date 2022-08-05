@@ -25,7 +25,9 @@ export default function ArticleComponent(prop: IArticleInDb) {
           </h5>
           <div>{prop.description.slice(0, 30)}...</div>
           <div>
-            <span>{prop.prix}</span>
+            <span> 
+            <b style={{ "font-size": "2.5em" }} dir="ltr"> {getNumberResp(prop.prix) }</b>
+            </span>
             <small>
               اوقية جيدة
             </small>

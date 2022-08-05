@@ -28,7 +28,6 @@ export const handler: Handlers<IArticlesItemAndPageNumber | null> = {
     try {
       const skip = (pageN - 1) * itemPerPage;
       const articles = await getArticles(pool, skip);
-      console.log({ articles });
       if (articles) {
         toRender.articles = articles;
       }

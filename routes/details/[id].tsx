@@ -17,8 +17,6 @@ export const handler: Handlers<IArticleInDb | null> = {
 
     const idNumber = parseInt(id);
     const articles = await getArticleById(pool, idNumber);
-    console.log("[id].ts");
-    console.log({ articles });
     if (!articles || articles.length == 0) {
       return ctx.render(null);
     } else {

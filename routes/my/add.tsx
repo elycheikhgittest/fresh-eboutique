@@ -31,7 +31,6 @@ export const handler: Handlers<null> = {
   async GET(req, ctx) {
     const url = new URL(req.url);
     const { isLogin, userId } = await isloginFromRequest(req);
-    console.log({ isLogin });
     if (!isLogin) {
       return Response.redirect(`${url.protocol}//${url.host}/user/login`);
     }
@@ -40,11 +39,9 @@ export const handler: Handlers<null> = {
   async POST(req, ctx) {
     const url = new URL(req.url);
     const { isLogin, userId } = await isloginFromRequest(req);
-    console.log({ isLogin });
     if (!isLogin) {
       return Response.redirect(`${url.protocol}//${url.host}/user/login`);
-    }
-    console.log({ isLogin, userId });
+    } 
     const data = await req.formData();
     // validate that option is in some range
     // verify desc min 4 max 150
