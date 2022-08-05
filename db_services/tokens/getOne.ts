@@ -15,7 +15,7 @@ export async function getTokens(
       {
         token,
       },
-    ); 
+    );
     return result.rows;
   } catch (e) {
     logger.error(e);

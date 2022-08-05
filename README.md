@@ -26,4 +26,8 @@ export DATABASE_URL=postgres://postgres:postgresmaster@localhost:5432/eboutique
 deno run --allow-read --allow-env --allow-net cli/add.cli.ts
 ```
 
-# I make this change
+```
+export SECRET_KEY=SuperDuperSecret 
+export DATABASE_URL=postgres://postgres:postgresmaster@localhost:5432/eboutique 
+deno run --allow-read --allow-env --allow-net db_services/artilces/getone.cli.ts
+```

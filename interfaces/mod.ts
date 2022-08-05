@@ -1,4 +1,4 @@
-import { IArticleInDb } from "../db_services/artilces/interface.ts";
+import { IArticleInDb } from "./interface.ts";
 
 export interface IArticlesItemAndPageNumber {
   articles: IArticleInDb[];

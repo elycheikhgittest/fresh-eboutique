@@ -53,7 +53,7 @@ export default function Home(
     <Fragment>
       <Head>
         <title>
-        لائحة اﻹعلانات
+          لائحة اﻹعلانات
         </title>
         <link rel="stylesheet" href="/styles.css" />
       </Head>

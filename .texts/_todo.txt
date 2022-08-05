@@ -1,5 +1,10 @@
 
 
+creer un user via cli?
+authenticate user via cli
+seulement les fichier .cli.ts doit apparaitre dans le dossier cli pour
+mieu respecter sing res principle
+sql type (ts) de returned resultat
 on doit exiger un numero de tel valable pour le public
 on doit recuperer le numero de tel/username pour les details
 

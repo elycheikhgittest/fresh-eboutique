@@ -38,7 +38,7 @@ export default function ArticleDetails(
         <div>
           الهاتف
           <br />
-          223399..
+          {prop.username!}
         </div>
       </div>
     </article>

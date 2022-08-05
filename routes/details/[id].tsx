@@ -5,11 +5,21 @@ import { Fragment } from "preact";
 import Navbar from "../../islands/Navbar.tsx";
 import ArticleComponent from "../../component/articleDetails.tsx";
 import NotFound from "../../component/notFound2.jsx";
-// http://localhost:3000/api/private/objects/objectname/list/g_.ts
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { IArticleInDb } from "../../interfaces/interface.ts";
 import { getArticleById } from "../../db_services/artilces/getone.ts";
 import { pool } from "../../config/pool.ts";
+/*
+       id={data.id}
+            categorie={data.categorie}
+            subcategorie={data.subcategorie}
+            lieu={data.lieu}
+            description={data.description}
+            prix={data.prix}
+            dateadd={data.dateadd}
+            username={data.username}
+
+*/
 
 export const handler: Handlers<IArticleInDb | null> = {
   async GET(req, ctx) {
@@ -50,15 +60,7 @@ export default function DetailsPublic(
         </header>
 
         <div class="card-container">
-          <ArticleComponent
-            id={data.id}
-            categorie={data.categorie}
-            subcategorie={data.subcategorie}
-            lieu={data.lieu}
-            description={data.description}
-            prix={data.prix}
-            dateadd={data.dateadd}
-          />
+          <ArticleComponent {...data} />
         </div>
       </body>
     </Fragment>

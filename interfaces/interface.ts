@@ -5,6 +5,7 @@ export interface IArticle {
   prix: number;
   description: string;
   dateadd: string;
+  username: number;
 }
 
 export interface IArticleInDb extends IArticle {
