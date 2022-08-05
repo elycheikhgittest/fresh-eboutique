@@ -8,5 +8,6 @@ const paths = [
   "categories.sql",
   "subcategories.sql",
   "articles.sql",
+  "lieux.sql",
 ];
 await create_all_tables(pool, paths);
