@@ -1,6 +1,6 @@
-import { IArticle } from "../interfaces/interface.ts";
+import { IArticleUserLess } from "../interfaces/interface.ts";
 
-export const articlesToSave: IArticle[] = [
+export const articlesToSave: IArticleUserLess[] = [
   // 1
   {
     categorie: 0,

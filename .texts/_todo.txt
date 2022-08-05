@@ -1,12 +1,11 @@
 
 
-creer un user via cli?
-authenticate user via cli
-seulement les fichier .cli.ts doit apparaitre dans le dossier cli pour
-mieu respecter sing res principle
+
+
+
 sql type (ts) de returned resultat
 on doit exiger un numero de tel valable pour le public
-on doit recuperer le numero de tel/username pour les details
+
 
  pour le form add article
  on n'a pas besoin d'envoyer/ ni recuperer le numero du categorie depuis le 
@@ -15,7 +14,7 @@ on doit recuperer le numero de tel/username pour les details
  les categorie et les subcategorie et les lieux sont gerer uniquement par l'admin en mode lire et
  ajouter uniquement.
  
- le user est redirect apres login/register success vers add page cote client
+ 
  
  review register.tsx code
  
@@ -23,3 +22,14 @@ on doit recuperer le numero de tel/username pour les details
  pb frontend pure:
   in list ui toutes les description doit avoir exactement le meme tailles pour que la largeur de chaque
  item de la list soit la meme ( a la regle ) donc agreable a voire
+ 
+ info
+ le user est redirect apres login/register success vers add page cote client
+ 
+ low periority
+ seulement les fichier .cli.ts doit apparaitre dans le dossier cli pour
+mieu respecter sing res principle
+ 
+ done
+ on doit recuperer le numero de tel/username pour les details
+ creer un user via cli

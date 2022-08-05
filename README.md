@@ -31,3 +31,21 @@ export SECRET_KEY=SuperDuperSecret
 export DATABASE_URL=postgres://postgres:postgresmaster@localhost:5432/eboutique 
 deno run --allow-read --allow-env --allow-net db_services/artilces/getone.cli.ts
 ```
+
+```
+export SECRET_KEY=SuperDuperSecret 
+export DATABASE_URL=postgres://postgres:postgresmaster@localhost:5432/eboutique 
+deno run --allow-read --allow-env --allow-net db_services/users/add.cli.ts
+```
+
+# after changes in test/dev mode
+
+```
+export SECRET_KEY=SuperDuperSecret 
+export DATABASE_URL=postgres://postgres:postgresmaster@localhost:5432/eboutique 
+deno run --allow-read --allow-env --allow-net  cli/create_table.cli.ts
+deno run --allow-read --allow-env --allow-net  cli/drop.cli.ts articles categories tokens users
+deno run --allow-read --allow-env --allow-net  cli/create_table.cli.ts
+deno run --allow-read --allow-env --allow-net db_services/users/add.cli.ts
+deno run --allow-read --allow-env --allow-net cli/add.cli.ts
+```

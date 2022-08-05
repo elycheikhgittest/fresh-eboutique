@@ -1,32 +1,21 @@
 import * as postgres from "https://deno.land/x/postgres@v0.16.1/mod.ts";
 
-export async function drop_table_users(pool: postgres.Pool) {
+export async function drop_all_tables(pool: postgres.Pool) {
+  const args = Deno.args;
+  console.log({ args });
   const connection = await pool.connect();
-  try {
-    // Create the table
-    await connection.queryObject`DROP TABLE users`;
-    console.log("table users deleted");
-  } finally {
-    connection.release();
-  }
-}
 
-export async function drop_table_articles(pool: postgres.Pool) {
-  const connection = await pool.connect();
-  try {
-    await connection.queryObject`DROP TABLE articles`;
-    console.log("table articles deleted");
-  } finally {
-    connection.release();
-  }
-}
-
-export async function drop_table_tokens(pool: postgres.Pool) {
-  const connection = await pool.connect();
-  try {
-    await connection.queryObject`DROP TABLE tokens`;
-    console.log("table tokens deleted");
-  } finally {
+  for (let index = 0; index < args.length; index++) {
+    const t = args[index];
+    try {
+      // Create the table
+      await connection.queryObject(
+        `DROP TABLE ${t}`,
+      );
+      console.log("table users deleted");
+    } catch (error) {
+      console.log(error);
+    }
     connection.release();
   }
 }
