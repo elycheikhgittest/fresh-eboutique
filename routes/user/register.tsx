@@ -36,8 +36,8 @@ export const handler: Handlers<IMessage> = {
     const username = String(data.get("username"));
     const password = String(data.get("password"));
     const passwordHashed = hashPassword(password);
-    let isSaved = false; 
-    try { 
+    let isSaved = false;
+    try {
       await createUser(pool, { username, password: passwordHashed });
       const users = await getUserByName(pool, username);
       if (users) {

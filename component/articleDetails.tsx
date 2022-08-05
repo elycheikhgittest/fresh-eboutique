@@ -7,8 +7,6 @@ import { getNumberResp } from "../utiles/number_repr.ts";
 export default function ArticleDetails(
   prop: IArticleInDb,
 ) {
-  console.log("articleDetails in components : ");
-  console.log(prop);
   return (
     <article class="card">
       <div class="card__image" style="background-image: url(/img/ah1.jpg);">

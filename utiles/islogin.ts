@@ -12,12 +12,12 @@ interface IWhoIsSendingRequest {
 
 export async function isloginFromRequest(
   req: Request,
-): Promise<IWhoIsSendingRequest> { 
-  const cookies = getCookies(req.headers); 
-  const token = cookies["token"]; 
+): Promise<IWhoIsSendingRequest> {
+  const cookies = getCookies(req.headers);
+  const token = cookies["token"];
   if (token && v4.validate(token)) {
     // I must verify token is in db
-    const tokens = await getTokens(pool, token); 
+    const tokens = await getTokens(pool, token);
     if (tokens && tokens.length == 1) {
       return {
         userId: tokens[0].userid,
@@ -36,4 +36,3 @@ export async function isloginFromRequest(
     };
   }
 }
- 

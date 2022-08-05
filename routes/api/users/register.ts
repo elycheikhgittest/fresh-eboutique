@@ -9,8 +9,8 @@ import {
 export const handler = async (
   req: Request,
   _ctx: HandlerContext,
-): Promise<Response> => { 
-  const _d = await req.json(); 
+): Promise<Response> => {
+  const _d = await req.json();
   //const headers = new Headers();
   const cookie: Cookie = { name: "ely", value: "smail", httpOnly: true };
   // save in db

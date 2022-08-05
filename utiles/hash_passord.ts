@@ -20,5 +20,3 @@ export function hashPassword(password: string) {
   const encrypted = cipher.encrypt(data);
   return encode(encrypted);
 }
-
- 
