@@ -16,7 +16,7 @@ export async function createSubCategorie(
         `,
       {
         nom: subCategorie.nom,
-        categorie_id:subCategorie.categorie_id
+        categorie_id: subCategorie.categorie_id,
       },
     );
   } catch (e) {

@@ -31,11 +31,9 @@ export interface ICategorieInput {
 
 export interface ISubCategorieInput {
   nom: string;
-  categorie_id:number;
-
+  categorie_id: number;
 }
 
 export interface ICategorie extends ICategorieInput {
   nom: string;
 }
-

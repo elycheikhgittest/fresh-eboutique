@@ -52,10 +52,9 @@ deno run --allow-read --allow-env --allow-net  db_services/categories/add.cli.ts
 deno run --allow-read --allow-env --allow-net  db_services/categories/add.cli.ts  ايجار
 deno run --allow-read --allow-env --allow-net  db_services/categories/add.cli.ts  طلب
 
-deno run --allow-read --allow-env --allow-net db_services/subcategories/add.ts 1 maison
+deno run --allow-read --allow-env --allow-net db_services/subcategories/add.cli.ts 1 maison
 
 
 
 deno run --allow-read --allow-env --allow-net cli/add.cli.ts
-
 ```

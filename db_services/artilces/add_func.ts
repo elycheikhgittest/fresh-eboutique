@@ -2,7 +2,7 @@ import * as postgres from "https://deno.land/x/postgres@v0.16.1/mod.ts";
 
 import * as logger from "https://deno.land/std@0.149.0/log/mod.ts";
 import { IArticleUserLess } from "../../interfaces/interface.ts";
- 
+
 export async function createArticle(
   pool: postgres.Pool,
   article: IArticleUserLess,

@@ -6,7 +6,8 @@ async function createSubCategorieCli() {
   if (Deno.args.length > 1) {
     const categorie_id = parseInt(Deno.args[0]);
     const nom = Deno.args[1];
-    await createSubCategorie(pool, { nom,categorie_id });
+    console.log({ nom, categorie_id });
+    await createSubCategorie(pool, { nom, categorie_id });
   } else {
     console.log("this command syntax is ");
     console.log(
@@ -15,4 +16,4 @@ async function createSubCategorieCli() {
   }
 }
 
-await createSubCategorieCli()
+await createSubCategorieCli();
