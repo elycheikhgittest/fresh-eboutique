@@ -15,4 +15,4 @@ async function initCli() {
 }
 
 await initCli();
-//  deno run --allow-read --allow-env --allow-net  db_services/categories/init.cli.ts 
+//  deno run --allow-read --allow-env --allow-net  db_services/categories/init.cli.ts

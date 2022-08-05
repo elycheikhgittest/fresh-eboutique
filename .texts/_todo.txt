@@ -1,6 +1,6 @@
 
-
-
+netoyer les donnees d'initialisation avant de les sauvegarder :
+ list des categorie, subcategorie, lieux
 
 
 sql type (ts) de returned resultat
