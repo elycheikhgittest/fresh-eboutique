@@ -15,8 +15,7 @@ export async function getTokens(
       {
         token,
       },
-    );
-    console.log("get tokens from db");
+    ); 
     return result.rows;
   } catch (e) {
     logger.error(e);

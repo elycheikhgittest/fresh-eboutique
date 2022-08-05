@@ -52,7 +52,9 @@ export default function Home(
   return (
     <Fragment>
       <Head>
-        <title>home in head</title>
+        <title>
+        لائحة اﻹعلانات
+        </title>
         <link rel="stylesheet" href="/styles.css" />
       </Head>
       <body dir="rtl">
