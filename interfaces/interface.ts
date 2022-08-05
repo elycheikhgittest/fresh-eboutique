@@ -29,6 +29,13 @@ export interface ICategorieInput {
   nom: string;
 }
 
+export interface ISubCategorieInput {
+  nom: string;
+  categorie_id:number;
+
+}
+
 export interface ICategorie extends ICategorieInput {
   nom: string;
 }
+

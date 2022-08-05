@@ -1,12 +1,11 @@
 import * as postgres from "https://deno.land/x/postgres@v0.16.1/mod.ts";
 
 import * as logger from "https://deno.land/std@0.149.0/log/mod.ts";
-import { IArticle } from "../../interfaces/interface.ts";
-//import { IArticle } from "./interface.ts";
-
+import { IArticleUserLess } from "../../interfaces/interface.ts";
+ 
 export async function createArticle(
   pool: postgres.Pool,
-  article: IArticle,
+  article: IArticleUserLess,
   userId: number,
 ): Promise<any> {
   const client = await pool.connect();

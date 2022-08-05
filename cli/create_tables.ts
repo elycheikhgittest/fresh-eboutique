@@ -36,6 +36,25 @@ export async function create_table_categories(pool: postgres.Pool) {
   }
 }
 
+export async function create_table_subcategories(pool: postgres.Pool) {
+  const connection = await pool.connect();
+  try {
+    await connection.queryObject`
+    CREATE TABLE IF NOT EXISTS subcategories (
+      id SERIAL PRIMARY KEY,
+      nom TEXT NOT NULL UNIQUE,
+      categorie_id Int NOT NULL,
+      FOREIGN KEY (categorie_id) REFERENCES categories (id)
+    )
+  `;
+    // replace consol log by std/logger
+    console.log("table users created");
+  } finally {
+    // Release the connection back into the pool
+    connection.release();
+  }
+}
+
 export async function create_table_articles(pool: postgres.Pool) {
   const connection = await pool.connect();
   try {
