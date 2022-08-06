@@ -11,7 +11,7 @@ export async function createToken(
     const result = await client.queryObject(
       `
         INSERT INTO tokens
-        (userId, token, expire_date, isActive)
+        (user_id, token, expire_date, isActive)
         VALUES ( $userId, $token, $expire_date, $isActive)
         `,
       {

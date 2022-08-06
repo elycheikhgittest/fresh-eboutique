@@ -6,7 +6,7 @@ import { IArticleUserLess } from "../../interfaces/interface.ts";
 export async function createArticle(
   pool: postgres.Pool,
   article: IArticleUserLess,
-  userId: number,
+  user_id: number,
 ): Promise<any> {
   const client = await pool.connect();
   try {
@@ -14,10 +14,10 @@ export async function createArticle(
       article;
     const result = await client.queryObject(
       ` INSERT INTO articles
-        (userId, categorie, subcategorie, lieu, prix, description, dateAdd )
-        VALUES ( $userId, $categorie, $subcategorie, $lieu, $prix, $description, $dateadd)
+        (user_id, categorie, subcategorie, lieu, prix, description, dateAdd )
+        VALUES ( $user_id, $categorie, $subcategorie, $lieu, $prix, $description, $dateadd)
         `,
-      { userId, categorie, subcategorie, lieu, prix, description, dateadd },
+      { user_id, categorie, subcategorie, lieu, prix, description, dateadd },
     );
     return result;
   } catch (e) {

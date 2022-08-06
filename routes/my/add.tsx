@@ -3,6 +3,8 @@ import { h } from "preact";
 import { Head } from "$fresh/src/runtime/head.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Fragment } from "preact";
+
+import { data as optionsData } from "../../db_services/data_src.ts";
 import Navbar from "../../islands/Navbar.tsx";
 import AddForm from "../../islands/addForm.tsx";
 import { convertToIntOrZero } from "../../utiles/convet_to_int_or_zero.ts";
@@ -45,11 +47,24 @@ export const handler: Handlers<null> = {
     const data = await req.formData();
     // validate that option is in some range
     // verify desc min 4 max 150
+    let isFormValid = true;
 
     let categorie = 0;
-    categorie = convertToIntOrZero(String(data.get("categorie")));
+    //categorie = convertToIntOrZero(String(data.get("categorie")));
 
     let subcategorie = 0;
+    const subcategorieObject = optionsData.subcategories.find(
+      (item) => {
+        return String(item.id) == String(data.get("subcategorie"));
+      },
+    );
+    if (!subcategorieObject) {
+      isFormValid = false;
+    }
+    if (subcategorieObject) {
+      categorie = parseInt(subcategorieObject.categorie_id);
+    }
+    //.find(item => item.id == 1)
     subcategorie = convertToIntOrZero(String(data.get("subcategorie")));
 
     let lieu = 0;
@@ -81,7 +96,7 @@ export const handler: Handlers<null> = {
     // qui ajoute cette article
 
     try {
-      if (passes) {
+      if (passes && isFormValid) {
         await createArticle(
           pool,
           {

@@ -1,6 +1,9 @@
 /** @jsx h */
 import { h } from "preact";
 import { Fragment } from "preact";
+//
+
+import { data as optionsData } from "../db_services/data_src.ts";
 import { IArticleInDb } from "../interfaces/interface.ts";
 import { getNumberResp } from "../utiles/number_repr.ts";
 function getXFirstCharacters(word: string, max: number) {
@@ -11,6 +14,10 @@ function getXFirstCharacters(word: string, max: number) {
 
 export default function ArticleComponent(prop: IArticleInDb) {
   const detailsUrl = `details/${prop.id}`;
+  const isDemande = prop.categorie == 2;
+  //const categorie_id = optionsData.categories[prop.categorie].id
+  const categorie = optionsData.categories[prop.categorie].nom;
+  const subcategorie = optionsData.subcategories[prop.categorie].nom;
   return (
     <div class="card-container">
       <article class="card">
@@ -21,19 +28,21 @@ export default function ArticleComponent(prop: IArticleInDb) {
         </div>
         <div class="card__content">
           <h5 class="card__title">
-            سيارة للبيع
+            {categorie}/{subcategorie}
           </h5>
           <div>{prop.description.slice(0, 30)}...</div>
-          <div>
-            <span>
-              <b style={{ "font-size": "2.5em" }} dir="ltr">
-                {getNumberResp(prop.prix)}
-              </b>
-            </span>
-            <small>
-              اوقية جيدة
-            </small>
-          </div>
+          {!isDemande && (
+            <div>
+              <span>
+                <b style={{ "font-size": "2.5em" }} dir="ltr">
+                  {getNumberResp(prop.prix)}
+                </b>
+              </span>
+              <small>
+                اوقية جيدة
+              </small>
+            </div>
+          )}
         </div>
         <div class="card__footer">
           <span>{prop.dateadd}</span>

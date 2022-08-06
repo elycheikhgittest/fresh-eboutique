@@ -9,7 +9,7 @@ export async function getTokens(
   try {
     const result = await client.queryObject(
       `
-      SELECT userId FROM tokens
+      SELECT user_id FROM tokens
       WHERE token = $token 
       `,
       {

@@ -18,7 +18,7 @@ export async function getArticleById(
       a.id, categorie, subcategorie, lieu, description, prix, dateAdd, username
       FROM articles a
       LEFT JOIN users  u 
-      ON u.id = a.userId
+      ON u.id = a.user_id
       WHERE a.id = $id `,
       { id },
     );
