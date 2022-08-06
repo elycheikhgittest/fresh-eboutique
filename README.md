@@ -51,7 +51,5 @@ deno run --allow-read --allow-env --allow-net  db_services/categories/init.cli.t
 deno run --allow-read --allow-env --allow-net  db_services/subcategories/init.cli.ts
 deno run --allow-read --allow-env --allow-net  db_services/lieux/init.ts
 
- 
-
 deno run --allow-read --allow-env --allow-net cli/add.cli.ts
 ```

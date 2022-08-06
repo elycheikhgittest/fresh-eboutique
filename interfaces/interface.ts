@@ -19,9 +19,17 @@ export interface ICategorieInput {
   nom: string;
 }
 
+export interface ICategorieInDb extends ICategorieInput {
+  id: number;
+}
+
 export interface ISubCategorieInput {
   nom: string;
   categorie_id: number;
+}
+
+export interface ISubCategorieInDb extends ISubCategorieInput {
+  id: number;
 }
 
 export interface ICategorie extends ICategorieInput {
